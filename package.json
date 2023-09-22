@@ -1,0 +1,28 @@
+{
+  "name": "netrondata",
+  "version": "0.0.1",
+  "description": "data for the frontend",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netrondev/netrondata.git"
+  },
+  "keywords": [
+    "netron",
+    "surrealdb",
+    "react"
+  ],
+  "author": "netron.co.za",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/netrondev/netrondata/issues"
+  },
+  "homepage": "https://github.com/netrondev/netrondata#readme",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
