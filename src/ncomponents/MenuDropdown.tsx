@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { AiOutlineCheck } from "react-icons/ai";
 // import { BsChevronDown } from "react-icons/bs";
-import { cn } from "~/nutils/cn";
+import { cn } from "../nutils/cn";
 import Button from "./Button";
 
 const contents_data: {

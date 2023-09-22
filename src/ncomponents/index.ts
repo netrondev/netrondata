@@ -1,7 +1,5 @@
-export * from "./Avatar";
 export * from "./Button";
 export * from "./Container";
-export * from "./Footer";
 export * from "./Heading";
 export * from "./Input";
 export * from "./Label";

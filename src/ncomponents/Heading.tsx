@@ -1,4 +1,4 @@
-import { cn } from "~/nutils/cn";
+import { cn } from "../nutils/cn";
 
 export function Heading(props: { children: string; className?: string }) {
   return (

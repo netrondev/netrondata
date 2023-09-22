@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { cn } from "~/nutils/cn";
+import { cn } from "../nutils/cn";
 
 export default function Tooltip(props: {
   children: ReactNode;

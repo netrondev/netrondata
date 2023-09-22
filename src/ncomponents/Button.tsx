@@ -3,9 +3,8 @@ import {
   type DetailedHTMLProps,
   type ReactNode,
 } from "react";
-import { cn } from "~/nutils/cn";
+import { cn } from "../nutils/cn";
 import Tooltip from "./Tooltip";
-import Link from "next/link";
 
 type ButtonEvent = Parameters<
   NonNullable<
@@ -68,9 +67,7 @@ export default function Button(
     );
   }
 
-  if (href) {
-    return <Link href={href}>{render_button()}</Link>;
-  }
+
 
   if (tooltip) {
     return <Tooltip tooltip={tooltip}>{render_button()}</Tooltip>;

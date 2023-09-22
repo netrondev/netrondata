@@ -1,5 +1,5 @@
 import { type TextareaHTMLAttributes } from "react";
-import { cn } from "~/nutils/cn";
+import { cn } from "../nutils/cn";
 
 export function TextArea(
   props: { className?: string } & TextareaHTMLAttributes<HTMLTextAreaElement>

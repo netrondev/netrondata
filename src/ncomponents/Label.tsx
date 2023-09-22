@@ -1,5 +1,5 @@
 import { type LabelHTMLAttributes } from "react";
-import { cn } from "~/nutils/cn";
+import { cn } from "../nutils/cn";
 
 export function Label(
   props: { className?: string } & LabelHTMLAttributes<HTMLLabelElement>

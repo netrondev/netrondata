@@ -1,5 +1,5 @@
 import { type InputHTMLAttributes, type DetailedHTMLProps } from "react";
-import { cn } from "~/nutils/cn";
+import { cn } from "../nutils/cn";
 
 export function Input(
   props: DetailedHTMLProps<

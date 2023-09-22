@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { cn } from "~/nutils/cn";
+import { cn } from "../nutils/cn";
 
 export default function Seperator(props: {
   className?: string;
