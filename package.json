@@ -1,6 +1,6 @@
 {
   "name": "netrondata",
-  "version": "0.1.2",
+  "version": "0.1.8",
   "description": "A simple template for a custom React component library",
   "scripts": {
     "rollup": "rollup -c",
@@ -8,7 +8,7 @@
   },
   "author": "netron.co.za",
   "license": "MIT",
-  "devDependencies": {
+  "peerDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
@@ -42,7 +42,7 @@
   "dependencies": {
     "clsx": "^2.0.0",
     "next": "^13.5.2",
-    "react-icons": "^4.11.0",
-    "tailwind-merge": "^1.14.0"
+    "tailwind-merge": "^1.14.0",
+    "tslib": "^2.6.2"
   }
 }

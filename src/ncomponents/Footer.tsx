@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Container } from "./Container";
-import { AppVersion } from "./Version";
 
 export function Footer() {
   return (
@@ -155,8 +154,6 @@ export function Footer() {
               </div>
             </nav>
           </div>
-
-          <AppVersion />
         </Container>
       </footer>
     </>

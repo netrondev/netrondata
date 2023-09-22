@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AiOutlineCheck } from "react-icons/ai";
-import { BsChevronDown } from "react-icons/bs";
+// import { AiOutlineCheck } from "react-icons/ai";
+// import { BsChevronDown } from "react-icons/bs";
 import { cn } from "~/nutils/cn";
 import Button from "./Button";
 
@@ -119,10 +119,11 @@ function ContentMenu(props: {
         }}
       >
         <div className="flex-1 whitespace-nowrap text-left">{props.title}</div>
-        {props.is_done && <AiOutlineCheck />}
-        <BsChevronDown
+        {/* {props.is_done && } */}
+        {/* <BsChevronDown
           className={cn("transition", expanded ? "rotate-0" : "rotate-180")}
-        />
+        /> */}
+        toggle
       </Button>
       <div
         className={cn(
@@ -135,12 +136,13 @@ function ContentMenu(props: {
             key={i}
             className="flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50"
           >
-            <AiOutlineCheck
+            check
+            {/* <AiOutlineCheck
               className={cn(
                 "mt-1",
                 props.is_done ? "opacity-100" : "opacity-5"
               )}
-            />
+            /> */}
             {i}
           </div>
         ))}
