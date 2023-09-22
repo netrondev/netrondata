@@ -1,3 +1,8 @@
+
+
+
+
+-----------------------------------------------------
 # React Component Library Template
 
 This project is part of a [blog & video tutorial](https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe) on how to create and publish your own component library.
@@ -40,20 +45,28 @@ npm run build-storybook
 
 ## Tutorial
 
-1. [Introduction](#introduction)
-1. [Prerequisites and Setup](#prerequisites-and-setup)
-1. [Creating Components](#creating-components)
-1. [Adding Typescript](#adding-typescript)
-1. [Adding Rollup](#adding-rollup)
-1. [Building Your Library](#building-your-library)
-1. [Publishing Your Library](#publishing-your-library)
-1. [Using Your Library](#using-your-library)
-1. [Adding CSS](#adding-css)
-1. [Optimizing](#optimizing)
-1. [Adding Tests](#adding-tests)
-1. [Adding Storybook](#adding-storybook)
-1. [Adding SCSS](#adding-scss)
-1. [Wrapping Up](#wrapping-up)
+- [React Component Library Template](#react-component-library-template)
+  - [Available Scripts](#available-scripts)
+    - [Build the library](#build-the-library)
+    - [Publish the library](#publish-the-library)
+    - [Run tests](#run-tests)
+    - [Run storybook locally](#run-storybook-locally)
+    - [Build storybook](#build-storybook)
+  - [Tutorial](#tutorial)
+  - [Introduction](#introduction)
+  - [Prerequisites and Setup](#prerequisites-and-setup)
+  - [Creating Components](#creating-components)
+  - [Adding Typescript](#adding-typescript)
+  - [Adding Rollup](#adding-rollup)
+  - [Building your library](#building-your-library)
+  - [Publishing your library](#publishing-your-library)
+  - [Using Your Library](#using-your-library)
+  - [Adding CSS](#adding-css)
+  - [Optimizing](#optimizing)
+  - [Adding Tests](#adding-tests)
+  - [Adding Storybook](#adding-storybook)
+  - [Adding SCSS](#adding-scss)
+  - [Wrapping Up](#wrapping-up)
 
 ## Introduction
 
