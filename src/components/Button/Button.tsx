@@ -8,7 +8,7 @@ export interface ButtonProps {
 const Button = (props: ButtonProps) => {
   return (
     <button style={{ background: "white", color: "blue" }}>
-      {props.label} woo
+      {props.label}
     </button>
   );
 };
