@@ -1,6 +1,6 @@
 {
   "name": "netrondata",
-  "version": "0.2.17",
+  "version": "0.2.21",
   "description": "Netron Data components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,8 +15,10 @@
     "@ladle/react": "^1.1.2",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
+    "clsx": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.14.0",
     "tsup": "^6.1.2",
     "typescript": "^4.7.4"
   },
@@ -26,5 +28,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "react-icons": "^4.11.0"
+  }
 }
