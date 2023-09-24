@@ -1,8 +1,9 @@
 {
   "name": "netrondata",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "description": "Netron Data components",
-  "main": "src/index.ts",
+  "main": "build/index.js",
+  "types": "types/index.d.ts",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -15,10 +16,17 @@
     "access": "public"
   },
   "scripts": {
-    "build": "esbuild"
+    "build": "rm -rf build && rm -rf types && bun build ./src/index.tsx --outdir ./build --format esm && tsc"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
+    "bun": "^1.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
