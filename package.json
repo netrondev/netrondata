@@ -1,45 +1,24 @@
 {
-  "name": "netronts",
-  "version": "0.1.15",
-  "description": "A simple template for a custom React component library",
-  "scripts": {
-    "build": "react build"
-  },
-  "workspaces": [
-    "packages/*"
-  ],
-  "author": "netron.co.za",
+  "name": "netrondata",
+  "version": "0.2.4",
+  "description": "Netron Data components",
+  "main": "src/index.ts",
   "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netrondev/netrondata.git",
+    "directory": "packages/netrondata"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "esbuild"
+  },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "plugins": [
-      "prettier-plugin-organize-imports",
-      "prettier-plugin-tailwindcss"
-    ]
-  },
-  "devDependencies": {
-    "@swc/core": "^1.2.131",
-    "@swc/jest": "^0.2.17",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@types/node": "^14.14.22",
-    "esbuild": "^0.17.8",
-    "fast-glob": "^3.2.11",
-    "husky": "^4.3.8",
-    "jest": "26",
-    "lint-staged": "^12.2.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.2",
-    "prettier-plugin-organize-imports": "^3.2.3",
-    "prettier-plugin-tailwindcss": "0.4",
-    "rimraf": "^3.0.2",
-    "tslib": "^2.3.1",
-    "typescript": "^4.9.5"
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
   }
 }
