@@ -60,7 +60,7 @@ export function Button(
           className
         )}
       >
-        {icon}123
+        {icon}
         {props.children}
       </button>
     );

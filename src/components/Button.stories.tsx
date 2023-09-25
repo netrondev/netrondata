@@ -1,11 +1,6 @@
 import React from "react";
 import { Button } from "./Button";
+import "tailwindcss/tailwind.css";
+export default { title: "Button" };
 
-export default { title: "test" };
-
-export const ButtonSEC2 = () => (
-  <div title={"asd"}>
-    <Button className="w-50 h-30">TEST BUTTON</Button>
-    Testasd
-  </div>
-);
+export const ButtonPreview = () => <Button>TEST BUTTON</Button>;

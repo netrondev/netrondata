@@ -1,10 +1,42 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Button } from "./Button";
 import { Loading } from "./Loading";
 import { Container } from "./Container";
 import { cn } from "../utils/cn";
+import { ButtonDropdown } from "./ButtonDropdown";
 
-export function Navbar(props: { className?: string }) {
+type NavMenuItem = {
+  title: string;
+  href?: string;
+  component?: ReactNode;
+  subItems?: NavMenuItem[];
+};
+
+function NavbarItem(props: { item: NavMenuItem }) {
+  if (props.item.subItems) {
+    return (
+      <ButtonDropdown
+        panel={
+          <div className="p-2">
+            {props.item.subItems.map((i) => {
+              return <div key={i.title}>{i.component}</div>;
+            })}
+          </div>
+        }
+      >
+        {props.item.title}
+      </ButtonDropdown>
+    );
+  }
+  return <div key={props.item.title}>{props.item.component}</div>;
+}
+
+export function Navbar(props: {
+  logo: ReactNode | string;
+  className?: string;
+  menu: NavMenuItem[];
+  menuSecondary?: NavMenuItem[];
+}) {
   return (
     <nav
       className={cn(
@@ -16,19 +48,23 @@ export function Navbar(props: { className?: string }) {
         <div className="flex items-center gap-4 text-xs">
           <Button>
             {/* Vulcan<span className="font-bold">University</span> */}
-
-            <span className="font-bold text-black dark:text-white">LOGO</span>
+            {typeof props.logo === "string" ? (
+              <span className="font-bold text-black dark:text-white">
+                {props.logo}
+              </span>
+            ) : (
+              props.logo
+            )}
           </Button>
-          {/* <Button href="/">
-            <AppName />
-          </Button> */}
-          {/* <Link href="/components">Components</Link> */}
-          {/* <Link href="/workshops">Pro Workshops</Link>
-          <Link href="/tutorials">Free Tutorials</Link>
-          <Link href="/tips">Tips</Link>
-          <Link href="/articles">Articles</Link> */}
+          {props.menu.map((i) => (
+            <NavbarItem key={i.title} item={i} />
+          ))}
 
           <div className="flex-1" />
+
+          {props.menuSecondary?.map((i) => (
+            <NavbarItem key={i.title} item={i} />
+          ))}
         </div>
       </Container>
     </nav>
