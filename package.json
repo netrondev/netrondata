@@ -1,6 +1,6 @@
 {
   "name": "netrondata",
-  "version": "0.2.22",
+  "version": "0.2.32",
   "description": "Netron Data components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,12 +25,18 @@
   "peerDependencies": {
     "react": "^16.8 || ^17 || ^18",
     "react-dom": "^16.8 || ^17 || ^18",
-    "react-icons": "^4.11"
+    "react-icons": "^4.11",
+    "next-auth": "^4.22.4",
+    "surrealdb.js": "^0.9.0",
+    "zod": "^3.21.4"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "react-icons": "^4.11.0"
+    "next-auth": "^4.22.4",
+    "react-icons": "^4.11.0",
+    "surrealdb.js": "^0.9.0",
+    "zod": "^3.21.4"
   }
 }

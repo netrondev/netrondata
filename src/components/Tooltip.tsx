@@ -1,10 +1,7 @@
 import React, { useState, type ReactNode } from "react";
 import { cn } from "../utils/cn";
 
-export default function Tooltip(props: {
-  children: ReactNode;
-  tooltip: string;
-}) {
+export function Tooltip(props: { children: ReactNode; tooltip: string }) {
   const [hover, hover_set] = useState(false);
   const [aligned_to, aligned_to_set] = useState<"left" | "right">("left");
   return (

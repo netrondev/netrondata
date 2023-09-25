@@ -3,8 +3,7 @@ import React, {
   type DetailedHTMLProps,
   type ReactNode,
 } from "react";
-import { cn } from "../utils/cn";
-import Tooltip from "./Tooltip";
+import { Tooltip, cn } from "..";
 
 type ButtonEvent = Parameters<
   NonNullable<
@@ -61,7 +60,7 @@ export function Button(
           className
         )}
       >
-        {icon}
+        {icon}123
         {props.children}
       </button>
     );
