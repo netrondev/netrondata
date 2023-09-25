@@ -12,6 +12,7 @@ export default {
 export const NavbarFancyLogo = () => (
   <Navbar
     logo={<div>FancyLogo</div>}
+    className="flex flex-row gap-2 items-center"
     menu={[
       {
         href: "/workshops",
