@@ -1,4 +1,3 @@
-import "./styles/globals.css";
 export * from "./components/Button";
 export * from "./components/ButtonDropdown";
 export * from "./components/Container";
@@ -14,5 +13,6 @@ export * from "./components/Section";
 export * from "./components/TextArea";
 export * from "./components/Label";
 export * from "./surreal/surrealAdapter";
+export * from "./surreal/surreal_helpers";
 export * from "./utils/cn";
 export { useBasic, createDBhook } from "./useData";
