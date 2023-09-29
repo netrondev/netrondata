@@ -10,6 +10,7 @@ export * from "./components/Navbar";
 export * from "./components/Page";
 export * from "./components/Input";
 export * from "./components/Tooltip";
+export * from "./components/Section";
 export * from "./surreal/surrealAdapter";
 export * from "./utils/cn";
 export { useBasic, createDBhook } from "./useData";
