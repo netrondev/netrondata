@@ -11,4 +11,4 @@ export * from "./components/Page";
 export * from "./components/Tooltip";
 export * from "./surreal/surrealAdapter";
 export * from "./utils/cn";
-export { useBasic } from "./useData";
+export { useBasic, createDBhook } from "./useData";
