@@ -8,6 +8,7 @@ export * from "./components/Loading";
 export * from "./components/MenuDropdown";
 export * from "./components/Navbar";
 export * from "./components/Page";
+export * from "./components/Input";
 export * from "./components/Tooltip";
 export * from "./surreal/surrealAdapter";
 export * from "./utils/cn";
