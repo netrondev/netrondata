@@ -1,13 +1,13 @@
 {
   "name": "netrondata",
-  "version": "0.2.42",
+  "version": "0.2.43",
   "description": "Netron Data components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ladle": "BROWSER=ls ladle serve",
-    "build": "tsup"
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react"
   },
   "author": "",
   "license": "MIT",
