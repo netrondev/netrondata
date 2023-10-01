@@ -10,7 +10,7 @@ export enum WebsocketStatus {
 
 export const createDBHook =
   <DB extends Database<any>>(inputs: {
-    token: string;
+    // token: string;
     host: string;
     db: string;
     ns: string;
@@ -38,13 +38,14 @@ export const createDBHook =
     }
 
     useEffect(() => {
-      if (!inputs.token) return;
+      //   if (!inputs.token) return;
       if (conn) return;
 
       const doconnect = async () => {
         db.connect(`${inputs.host}/sql`);
         checkStatus();
-        await db.authenticate(inputs.token);
+        // await db.authenticate(inputs.token);
+        await db.use({ ns: inputs.ns, db: inputs.db });
         checkStatus();
         if (!result) {
           console.log("doing query...");
