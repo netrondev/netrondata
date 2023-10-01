@@ -31,7 +31,7 @@ function NavbarItem(props: { item: NavMenuItem }) {
 
 export function Navbar(props: {
   logo: ReactNode | string;
-  className: string;
+  className?: string;
   menu: NavMenuItem[];
   menuSecondary?: NavMenuItem[];
 }) {
