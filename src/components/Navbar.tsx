@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { Button } from "./Button";
 import { ButtonDropdown } from "./ButtonDropdown";
+import { cn } from "../utils/cn";
 
 type NavMenuItem = {
   title: string;
@@ -35,7 +36,7 @@ export function Navbar(props: {
   menuSecondary?: NavMenuItem[];
 }) {
   return (
-    <nav className={props.className}>
+    <nav className={cn("flex flex-row gap-2 items-center", props.className)}>
       <Button>
         {/* Vulcan<span className="font-bold">University</span> */}
         {typeof props.logo === "string" ? (
