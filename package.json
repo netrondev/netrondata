@@ -1,6 +1,6 @@
 {
   "name": "netrondata",
-  "version": "0.2.48",
+  "version": "0.2.49",
   "description": "Netron Data components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -36,6 +36,8 @@
     "dist"
   ],
   "dependencies": {
+    "@types/node": "^20.8.0",
+    "json-to-zod": "^1.1.2",
     "next-auth": "^4.22.4",
     "react-icons": "^4.11.0",
     "surrealdb.js": "^0.9.0",
