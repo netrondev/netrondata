@@ -17,4 +17,4 @@ export * from "./surreal/surreal_helpers";
 export * from "./hooks/useData";
 export * from "./hooks/useSurreal";
 export * from "./utils/cn";
-export { useBasic, createDBhook } from "./useData";
+export { useBasic } from "./useData";
