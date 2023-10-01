@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { ButtonDropdown } from "./ButtonDropdown";
 import { cn } from "../utils/cn";
 
-type NavMenuItem = {
+export type NavMenuItem = {
   title: string;
   href?: string;
   component?: ReactNode;
