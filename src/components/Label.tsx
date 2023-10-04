@@ -15,7 +15,7 @@ export function Label(
   const { title, children, ...rest } = props;
 
   return (
-    <Section>
+    <Section className={"w-full"}>
       <label {...rest} className="text-xs">
         {title}
       </label>
