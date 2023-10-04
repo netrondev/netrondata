@@ -92,7 +92,7 @@ export function Table<T>(props: {
 
   const [sorting, setSorting] = React.useState<SortingState>([
     {
-      id: "nextPredictedOutage",
+      id: "id",
       desc: false,
     },
   ]);
@@ -252,15 +252,15 @@ export function Table<T>(props: {
                       )}
                     >
                       <div className="m-0 flex h-full w-full p-0">
-                        <a
-                          href={props.rowUrl ? props.rowUrl(row) : ""}
+                        <div
+                          // href={props.rowUrl ? props.rowUrl(row) : ""}
                           className="w-full flex-1 px-2 py-3"
                         >
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
                           )}
-                        </a>
+                        </div>
                       </div>
                     </td>
                   );
