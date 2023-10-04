@@ -10,7 +10,7 @@ export function Footer(props: {
   return (
     <footer
       className={cn(
-        "relative z-10 mt-16 flex items-center justify-center border-t border-gray-800/50 bg-neutral-100 dark:bg-neutral-800 px-8 pb-24 pt-24 md:mt-0 md:pb-40 md:pt-14 text-neutral-500 dark:text-white",
+        "relative z-10 mt-16 flex items-center justify-center  bg-neutral-100 dark:bg-neutral-800 px-8 pb-24 pt-24 md:mt-0 md:pb-40 md:pt-14 text-neutral-500 dark:text-white",
         props.className
       )}
     >

@@ -9,9 +9,7 @@ export const Provider: GlobalProvider = ({ children, globalState }) => {
 
   return (
     <html className={ctx.globalState.theme === "light" ? "" : "dark"}>
-      <div className="p-10 border shadow-2xl font-sans">
-        <div style={{ padding: 10 }}>{children}</div>
-      </div>
+      {children}
     </html>
   );
 };
