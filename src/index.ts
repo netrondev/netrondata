@@ -12,6 +12,7 @@ export * from "./components/Tooltip";
 export * from "./components/Section";
 export * from "./components/TextArea";
 export * from "./components/Label";
+export * from "./components/Table";
 export * from "./surreal/surrealAdapter";
 export * from "./surreal/surreal_helpers";
 export * from "./hooks/useData";
