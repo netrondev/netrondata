@@ -1,7 +1,7 @@
 import React, { type ReactNode } from "react";
 import { cn } from "../utils/cn";
 
-export default function Alert(props: {
+export function Alert(props: {
   severity: "error" | "success" | "info" | "warning";
   children: ReactNode;
   className?: string;
