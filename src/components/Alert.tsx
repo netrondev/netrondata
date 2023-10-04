@@ -10,12 +10,14 @@ export default function Alert(props: {
     <div
       className={cn(
         "rounded border px-3 py-2 text-xs",
-        props.severity === "error" && "border-red-500 bg-red-50 text-red-600",
+        props.severity === "error" &&
+          "border-red-500 bg-red-50 text-red-500 dark:bg-red-950",
         props.severity === "success" &&
-          "border-green-500 bg-green-50 text-green-600",
-        props.severity === "info" && "border-sky-500 bg-sky-50 text-sky-600",
+          "border-green-500 bg-green-50 text-green-500 dark:bg-green-950",
+        props.severity === "info" &&
+          "border-sky-500 bg-sky-50 text-sky-500 dark:bg-sky-950",
         props.severity === "warning" &&
-          "border-orange-500 bg-orange-50 text-orange-600",
+          "border-orange-500 bg-orange-50 text-orange-500 dark:bg-orange-950",
         props.className
       )}
     >
