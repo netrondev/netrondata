@@ -1,10 +1,25 @@
-import React, { type LabelHTMLAttributes } from "react";
-import { cn } from "../utils/cn";
+import React from "react";
+import {
+  type ReactNode,
+  type DetailedHTMLProps,
+  type LabelHTMLAttributes,
+} from "react";
+import { Section } from "./Section";
 
 export function Label(
-  props: { className?: string } & LabelHTMLAttributes<HTMLLabelElement>
+  props: DetailedHTMLProps<
+    LabelHTMLAttributes<HTMLLabelElement>,
+    HTMLLabelElement
+  > & { title: string; children: ReactNode }
 ) {
+  const { title, children, ...rest } = props;
+
   return (
-    <label {...props} className={cn("text-neutral-500", props.className)} />
+    <Section>
+      <label {...rest} className="text-xs">
+        {title}
+      </label>
+      {children}
+    </Section>
   );
 }
