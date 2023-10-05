@@ -10,14 +10,33 @@ export type NavMenuItem = {
   subItems?: NavMenuItem[];
 };
 
-function NavbarItem(props: { item: NavMenuItem }) {
+function NavbarItem(props: {
+  item: NavMenuItem;
+  defaultComponent?: (item: NavMenuItem) => ReactNode;
+}) {
   if (props.item.subItems) {
     return (
       <ButtonDropdown
         panel={
-          <div className="p-2">
+          <div className="p-2 flex flex-col gap-1">
             {props.item.subItems.map((i) => {
-              return <div key={i.title}>{i.component}</div>;
+              if (i.component) {
+                return <div key={i.title}>{i.component}</div>;
+              }
+
+              if (props.defaultComponent) {
+                return <div key={i.title}>{props.defaultComponent(i)}</div>;
+              }
+
+              return (
+                <a
+                  key={i.title}
+                  href={i.href}
+                  className="text-neutral-500 hover:text-neutral-700 transition dark:hover:text-neutral-300"
+                >
+                  {i.title}
+                </a>
+              );
             })}
           </div>
         }
@@ -26,7 +45,18 @@ function NavbarItem(props: { item: NavMenuItem }) {
       </ButtonDropdown>
     );
   }
-  return <div key={props.item.title}>{props.item.component}</div>;
+
+  if (props.defaultComponent) return props.defaultComponent(props.item);
+
+  return (
+    <a
+      key={props.item.title}
+      href={props.item.href}
+      className="text-neutral-500 hover:text-neutral-700 transition dark:hover:text-neutral-300"
+    >
+      {props.item.component}
+    </a>
+  );
 }
 
 export function Navbar(props: {
@@ -34,9 +64,12 @@ export function Navbar(props: {
   className?: string;
   menu: NavMenuItem[];
   menuSecondary?: NavMenuItem[];
+  defaultComponent?: (item: NavMenuItem) => ReactNode;
 }) {
   return (
-    <nav className={cn("flex flex-row gap-2 items-center", props.className)}>
+    <nav
+      className={cn("flex flex-row space-x-2 items-center", props.className)}
+    >
       <Button>
         {/* Vulcan<span className="font-bold">University</span> */}
         {typeof props.logo === "string" ? (
@@ -48,13 +81,21 @@ export function Navbar(props: {
         )}
       </Button>
       {props.menu.map((i) => (
-        <NavbarItem key={i.title} item={i} />
+        <NavbarItem
+          key={i.title}
+          item={i}
+          defaultComponent={props.defaultComponent}
+        />
       ))}
 
       <div className="flex-1" />
 
       {props.menuSecondary?.map((i) => (
-        <NavbarItem key={i.title} item={i} />
+        <NavbarItem
+          key={i.title}
+          item={i}
+          defaultComponent={props.defaultComponent}
+        />
       ))}
     </nav>
   );

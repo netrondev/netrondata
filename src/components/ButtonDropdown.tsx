@@ -35,6 +35,14 @@ export function ButtonDropdown(props: {
           </div>
         )}
       </div>
+      {open && (
+        <div
+          className="absolute left-0 right-0 top-0 bottom-0 z-30"
+          onClick={() => {
+            open_set(false);
+          }}
+        />
+      )}
     </>
   );
 }

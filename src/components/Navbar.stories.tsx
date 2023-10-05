@@ -18,6 +18,18 @@ export const NavbarFancyLogo = () => (
         href: "/workshops",
         component: <a href="/workshops">Pro Workshops</a>,
         title: "Pro Workshops",
+        subItems: [
+          {
+            title: "SubItem",
+            href: "/test/test",
+          },
+          {
+            title: "SubItem",
+          },
+          {
+            title: "SubItem",
+          },
+        ],
       },
       {
         href: "/tutorials",
