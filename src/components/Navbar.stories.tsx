@@ -13,6 +13,7 @@ export const NavbarFancyLogo = () => (
   <Navbar
     logo={<div>FancyLogo</div>}
     className="flex flex-row gap-2 items-center"
+    defaultComponent={(n) => <div className="text-red-500">{n.title}</div>}
     menu={[
       {
         href: "/workshops",

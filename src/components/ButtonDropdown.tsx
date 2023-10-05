@@ -30,6 +30,9 @@ export function ButtonDropdown(props: {
               "absolute left-0 z-[60] whitespace-nowrap rounded-xl border bg-white shadow-xl md:left-auto",
               props.side === "right" ? "right-0" : "left-0"
             )}
+            onClick={() => {
+              open_set(!open);
+            }}
           >
             {props.panel}
           </div>
