@@ -46,6 +46,8 @@ function NavbarItem(props: {
     );
   }
 
+  if (props.item.component) return <>{props.item.component}</>;
+
   if (props.defaultComponent) return props.defaultComponent(props.item);
 
   return (
