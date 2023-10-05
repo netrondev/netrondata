@@ -69,3 +69,13 @@ function Example() {
 Reference: 
 https://medium.com/@irekrog/quick-and-simple-create-and-publish-react-component-on-npm-df528cd26b0
 https://github.com/irekrog/my-awesome-button-alert-component
+
+
+```toml
+# Netron connection data
+NETRON_HOST="https://nautilus.netron.co.za"
+NETRON_USER="${props.username}"
+NETRON_PASS="${props.password}"
+NETRON_NS="${props.namespace}"
+NETRON_DB="default"
+```
