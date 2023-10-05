@@ -146,11 +146,11 @@ export function Table<T>(props: {
   });
 
   return (
-    <div className="w-full">
+    <div className="w-full dark:text-neutral-400">
       {/* <TableFilters table={table} />
         <TableFilters table={table} chiplist /> */}
       <table className="w-full ">
-        <thead className=" overflow-hidden rounded-t-xl bg-neutral-100">
+        <thead className=" overflow-hidden rounded-t-xl dark:text-neutral-300 ">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header, idx) => {
@@ -161,11 +161,7 @@ export function Table<T>(props: {
                     key={header.id}
                     colSpan={header.colSpan}
                     className={clsx(
-                      "p-0 text-left font-semibold uppercase text-neutral-800",
-                      header.column.getCanSort() &&
-                        "cursor-pointer text-neutral-800 hover:bg-neutral-200/50",
-                      header.column.getIsSorted() && "text-neutral-800",
-                      "group  border-r-neutral-200 text-xs text-neutral-700 first:border-l"
+                      "p-0 text-left font-semibold uppercase text-xs"
                     )}
                     style={{
                       width: header.getSize(),
@@ -198,7 +194,7 @@ export function Table<T>(props: {
                             )}
                           />
 
-                          <Button
+                          {/* <Button
                             onClick={header.column.getToggleSortingHandler()}
                           >
                             {header.column.getIsSorted() === false && (
@@ -219,7 +215,7 @@ export function Table<T>(props: {
                                 size={16}
                               />
                             )}
-                          </Button>
+                          </Button> */}
                         </div>
                       </>
                     )}
@@ -235,9 +231,9 @@ export function Table<T>(props: {
               <tr
                 key={row.id}
                 className={cn(
-                  "border-b bg-white transition hover:bg-purple-100",
+                  "border-b transition dark:border-neutral-700",
                   props.className ? props.className(row) : "",
-                  props.rowUrl && "cursor-pointer hover:text-purple-800"
+                  props.rowUrl && "cursor-pointer hover:text-neutral-800"
                 )}
                 // onClick={() => {
                 //   if (props.rowUrl) props.rowUrl(row);
