@@ -18,3 +18,31 @@ export default {
   darkMode: "class",
 } 
 ```
+
+
+# Auto Generate db schema
+
+```ts
+import { schema_generate } from "netrondata";
+
+const surrealdb = new Surreal();
+await surrealdb.connect(`https://hostname/rpc`);
+await surrealdb.signin({
+  user: "user",
+  pass: "pass",
+  NS: "yournamespace",
+  DB: "yourdatabase",
+});
+// this will generate and write the file to your source repo.
+await schema_generate({ db: surrealdb, fileout: "src/dbschema.ts" });
+```
+
+Once generated you can then import from the generated schema file.
+
+```ts
+import { type Query } from "netrondata"
+import { type DB } from "./dbschema"
+
+const typed = Query<"SELECT * FROM tablename", DB>
+
+```

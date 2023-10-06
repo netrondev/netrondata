@@ -9,6 +9,7 @@ import fs from "fs";
 
 export async function schema_generate(inputs: {
   db: Surreal;
+  /** example: src/dbschema.ts */
   fileout?: string;
 }) {
   const db = inputs.db;
