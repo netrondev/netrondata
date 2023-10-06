@@ -145,14 +145,14 @@ export async function SR_derive_fields_from_table({
           users: Record<string, string>;
         }
       ]
-    >(`SELECT * FROM ${table};`)
+    >(`SELECT * FROM ${table} LIMIT 100;`)
     .catch((err) => {
       console.log(err);
     });
 
   if (!result) throw new Error("could not get DB;");
 
-  console.log(result[0]?.result);
+  // console.log(result[0]?.result);
 
   return result[0]?.result;
 }
