@@ -21,4 +21,5 @@ export * from "./hooks/useSurreal";
 export * from "./utils/cn";
 export * from "./utils/isAlphaNumeric";
 export * from "surrealdb.js";
+export * from "./schema/generate";
 export { useBasic } from "./useData";

@@ -1,19 +1,22 @@
 import { Surreal } from "surrealdb.js";
 import {
   SR_derive_fields_from_table,
-  SR_info,
+  SR_getInfoForDB,
 } from "../surreal/surreal_helpers";
 
 import jsonToZod from "json-to-zod";
 import fs from "fs";
 
-export async function schema_generate(inputs: { db: Surreal }) {
+export async function schema_generate(inputs: {
+  db: Surreal;
+  fileout?: string;
+}) {
   const db = inputs.db;
-  const info = await SR_info({ db });
+  const dbinfo = await SR_getInfoForDB({ db });
   let schema_data = `import { z } from "zod";\n`;
   const names: { table: string; zodname: string; typename: string }[] = [];
 
-  for (const table of Object.keys(info.db.tables)) {
+  for (const table of Object.keys(dbinfo.tables)) {
     const rows = await SR_derive_fields_from_table({ db, table });
     const zodname = `TB${table}`;
     const typename = `TB${table}_type`;
@@ -30,6 +33,6 @@ export async function schema_generate(inputs: { db: Surreal }) {
   combined += `}\n`;
   schema_data += combined;
 
-  await fs.promises.writeFile("src/dbschema.ts", schema_data);
+  await fs.promises.writeFile(inputs.fileout ?? "src/dbschema.ts", schema_data);
   process.exit();
 }
