@@ -20,4 +20,5 @@ export * from "./hooks/useData";
 export * from "./hooks/useSurreal";
 export * from "./utils/cn";
 export * from "./utils/isAlphaNumeric";
+export * from "surrealdb.js";
 export { useBasic } from "./useData";

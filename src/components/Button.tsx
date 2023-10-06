@@ -45,7 +45,7 @@ export function Button(
         {...rest}
         className={cn(
           "flex border font-normal tracking-wider text-neutral-600 transition",
-          "items-center",
+          "items-center whitespace-nowrap",
           size === "sm" && "gap-1 rounded px-2 py-1 text-sm",
           size === "md" || (!size && "gap-3 rounded-lg p-1 px-2 font-normal"),
           size == "lg" && "gap-4 rounded-xl p-3",
