@@ -43,6 +43,6 @@ Once generated you can then import from the generated schema file.
 import { type Query } from "netrondata"
 import { type DB } from "./dbschema"
 
-const typed = Query<"SELECT * FROM tablename", DB>
+type Typed = Query<"SELECT * FROM tablename", DB>
 
 ```
