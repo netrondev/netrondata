@@ -34,5 +34,6 @@ export async function schema_generate(inputs: {
   schema_data += combined;
 
   await fs.promises.writeFile(inputs.fileout ?? "src/dbschema.ts", schema_data);
-  process.exit();
+
+  return { schema_data };
 }
