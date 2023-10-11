@@ -7,6 +7,7 @@ export * from "./components/Heading";
 export * from "./components/Loading";
 export * from "./components/MenuDropdown";
 export * from "./components/Navbar";
+export * from "./components/NoSSR";
 export * from "./components/Page";
 export * from "./components/Input";
 export * from "./components/Tooltip";
