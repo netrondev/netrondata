@@ -3,6 +3,7 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
 import { cn } from "../utils/cn";
 import { Button } from "./Button";
+import { NoSSR } from "./NoSSR";
 
 export type MenuItems = {
   title: string;
@@ -10,7 +11,10 @@ export type MenuItems = {
   is_done?: boolean;
 };
 
-function ExpandableDiv(props: { children: ReactNode; expanded: boolean }) {
+export function ExpandableDiv(props: {
+  children: ReactNode;
+  expanded: boolean;
+}) {
   const [height, set_height] = useState<number>();
   const [width, set_width] = useState<number>();
 
@@ -78,28 +82,30 @@ function ContentMenu(props: {
           )}
         />
       </Button>
-      <ExpandableDiv expanded={props.expanded}>
-        <div
-          className={cn(
-            "flex flex-col divide-y overflow-hidden text-sm transition-all dark:bg-neutral-800 dark:border-neutral-700 divide-neutral-200 dark:divide-neutral-700"
-          )}
-        >
-          {props.exercises?.map((i) => (
-            <div
-              key={i.title}
-              className="flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700"
-            >
-              <AiOutlineCheck
-                className={cn(
-                  "mt-1",
-                  props.is_done ? "opacity-100" : "opacity-5"
-                )}
-              />
-              {i.title}
-            </div>
-          ))}
-        </div>
-      </ExpandableDiv>
+      <NoSSR>
+        <ExpandableDiv expanded={props.expanded}>
+          <div
+            className={cn(
+              "flex flex-col divide-y overflow-hidden text-sm transition-all dark:bg-neutral-800 dark:border-neutral-700 divide-neutral-200 dark:divide-neutral-700"
+            )}
+          >
+            {props.exercises?.map((i) => (
+              <div
+                key={i.title}
+                className="flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700"
+              >
+                <AiOutlineCheck
+                  className={cn(
+                    "mt-1",
+                    props.is_done ? "opacity-100" : "opacity-5"
+                  )}
+                />
+                {i.title}
+              </div>
+            ))}
+          </div>
+        </ExpandableDiv>
+      </NoSSR>
     </div>
   );
 }
