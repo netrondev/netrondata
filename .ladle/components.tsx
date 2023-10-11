@@ -8,8 +8,8 @@ export const Provider: GlobalProvider = ({ children, globalState }) => {
   const ctx = useLadleContext();
 
   return (
-    <html className={ctx.globalState.theme === "light" ? "" : "dark"}>
+    <div className={ctx.globalState.theme === "light" ? "" : "dark"}>
       {children}
-    </html>
+    </div>
   );
 };
