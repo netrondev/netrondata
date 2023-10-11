@@ -13,5 +13,5 @@ export function NoSSR(props: { children: ReactNode }) {
     return <></>;
   }
 
-  return <></>;
+  return <>{props.children}</>;
 }
