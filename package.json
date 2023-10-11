@@ -1,6 +1,6 @@
 {
   "name": "netrondata",
-  "version": "0.2.82",
+  "version": "0.2.83",
   "description": "Netron Data components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

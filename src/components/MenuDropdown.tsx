@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
 import { cn } from "../utils/cn";
@@ -9,6 +9,48 @@ export type MenuItems = {
   subitems?: MenuItems[];
   is_done?: boolean;
 };
+
+function ExpandableDiv(props: { children: ReactNode; expanded: boolean }) {
+  const [height, set_height] = useState<number>();
+  const [width, set_width] = useState<number>();
+
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      if (elementRef.current) {
+        set_width(elementRef.current.clientWidth);
+        if (elementRef.current.clientHeight !== 0) {
+          set_height(elementRef.current.clientHeight);
+        }
+
+        // setOffsetLeft(elementRef.current.offsetLeft);
+      }
+
+      // setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  return (
+    <div
+      className={cn("transition-all overflow-clip")}
+      style={{ height: props.expanded ? height : 0 }}
+    >
+      <div
+        ref={elementRef}
+        className={cn(
+          "transition-all",
+          props.expanded ? "opacity-100" : "opacity-0"
+        )}
+      >
+        {props.children}
+      </div>
+    </div>
+  );
+}
 
 function ContentMenu(props: {
   title: string;
@@ -36,27 +78,28 @@ function ContentMenu(props: {
           )}
         />
       </Button>
-      <div
-        className={cn(
-          "flex flex-col divide-y overflow-hidden text-sm transition-all dark:bg-neutral-800 dark:border-neutral-700 divide-neutral-200 dark:divide-neutral-700",
-          props.expanded ? "h-80" : "h-0"
-        )}
-      >
-        {props.exercises?.map((i) => (
-          <div
-            key={i.title}
-            className="flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700"
-          >
-            <AiOutlineCheck
-              className={cn(
-                "mt-1",
-                props.is_done ? "opacity-100" : "opacity-5"
-              )}
-            />
-            {i.title}
-          </div>
-        ))}
-      </div>
+      <ExpandableDiv expanded={props.expanded}>
+        <div
+          className={cn(
+            "flex flex-col divide-y overflow-hidden text-sm transition-all dark:bg-neutral-800 dark:border-neutral-700 divide-neutral-200 dark:divide-neutral-700"
+          )}
+        >
+          {props.exercises?.map((i) => (
+            <div
+              key={i.title}
+              className="flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700"
+            >
+              <AiOutlineCheck
+                className={cn(
+                  "mt-1",
+                  props.is_done ? "opacity-100" : "opacity-5"
+                )}
+              />
+              {i.title}
+            </div>
+          ))}
+        </div>
+      </ExpandableDiv>
     </div>
   );
 }
