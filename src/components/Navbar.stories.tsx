@@ -80,13 +80,18 @@ export const NavbarFancyLogo = () => (
             title: "Search",
           },
           {
+            title: "Click With default",
+            onClick: () => {
+              console.log("click");
+            },
+          },
+          {
             href: "/feedback",
             component: <a href="/feedback">Feedback</a>,
             title: "Feedback",
           },
           {
-            href: "/account",
-            title: "Account",
+            title: "Dropdown Test",
             subItems: [
               {
                 href: "/purchases",

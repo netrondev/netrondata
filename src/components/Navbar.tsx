@@ -49,6 +49,9 @@ function NavbarItem(props: {
 
   if (props.item.component) return <>{props.item.component}</>;
 
+  if (props.item.onClick)
+    return <Button onClick={props.item.onClick}>{props.item.title}</Button>;
+
   if (props.defaultComponent) return props.defaultComponent(props.item);
 
   if (props.item.href)
@@ -61,9 +64,6 @@ function NavbarItem(props: {
         {props.item.component}
       </a>
     );
-
-  if (props.item.onClick)
-    return <Button onClick={props.item.onClick}>{props.item.title}</Button>;
 
   return <span>{props.item.title}</span>;
 }
