@@ -24,6 +24,14 @@ export const NavbarFancyLogo = () => (
               console.log("clicked!");
             },
           },
+
+          {
+            title: "Downdown Test 2",
+            subItems: [
+              { title: "Test asdasd" },
+              { title: "asdf", href: "www.google.com" },
+            ],
+          },
         ]}
       />
     </Page>
@@ -95,12 +103,9 @@ export const NavbarFancyLogo = () => (
             subItems: [
               {
                 href: "/purchases",
-                component: <a href="/purchases">Purchases</a>,
                 title: "Purchases",
               },
               {
-                href: "/faq",
-                component: <a href="/faq">FAQ</a>,
                 title: "FAQ",
               },
               {

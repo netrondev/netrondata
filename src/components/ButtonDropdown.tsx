@@ -2,6 +2,7 @@ import React, { type ReactNode, useState } from "react";
 
 import { Button } from "./Button";
 import { cn } from "../utils/cn";
+import { BsChevronDown } from "react-icons/bs";
 
 export function ButtonDropdown(props: {
   className?: string;
@@ -18,16 +19,16 @@ export function ButtonDropdown(props: {
           onClick={() => {
             open_set(!open);
           }}
-          className="w-full border-none bg-neutral-50"
+          className="w-full border-none"
         >
           <span className="w-full">{props.children}</span>
-
-          <span>⌄</span>
+          <BsChevronDown />
         </Button>
         {open && (
           <div
             className={cn(
-              "absolute left-0 z-[60] whitespace-nowrap rounded-xl border bg-white shadow-xl md:left-auto",
+              "absolute right-0 z-[60] whitespace-nowrap rounded border bg-white shadow-xl md:left-auto dark:bg-neutral-800",
+              "border-neutral-300 dark:border-neutral-600",
               props.side === "right" ? "right-0" : "left-0"
             )}
             onClick={() => {

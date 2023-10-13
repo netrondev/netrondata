@@ -52,7 +52,7 @@ export function Button(
           active
             ? "border-purple-300 bg-purple-700/10 text-purple-600"
             : cn(
-                "bg-neutral-100 text-neutral-500 hover:bg-neutral-200",
+                "bg-neutral-200 text-neutral-500 hover:bg-neutral-200",
                 "dark:border-neutral-800 dark:bg-neutral-900/50 hover:dark:bg-neutral-900 hover:dark:text-neutral-300"
               ),
           // active === false && "opacity-90",

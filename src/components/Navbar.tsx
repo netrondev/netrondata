@@ -44,12 +44,10 @@ function NavbarItem(props: {
 
   if (props.item.href)
     return (
-      <a
-        key={props.item.title}
-        href={props.item.href}
-        className="text-neutral-500 hover:text-neutral-700 transition dark:hover:text-neutral-300"
-      >
-        {props.item.component}
+      <a href={props.item.href}>
+        <Button href={props.item.href} className="w-full">
+          {props.item.title}
+        </Button>
       </a>
     );
 
