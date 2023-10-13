@@ -20,25 +20,13 @@ function NavbarItem(props: {
       <ButtonDropdown
         panel={
           <div className="p-2 flex flex-col gap-1">
-            {props.item.subItems.map((i) => {
-              if (i.component) {
-                return <div key={i.title}>{i.component}</div>;
-              }
-
-              if (props.defaultComponent) {
-                return <div key={i.title}>{props.defaultComponent(i)}</div>;
-              }
-
-              return (
-                <a
-                  key={i.title}
-                  href={i.href}
-                  className="text-neutral-500 hover:text-neutral-700 transition dark:hover:text-neutral-300"
-                >
-                  {i.title}
-                </a>
-              );
-            })}
+            {props.item.subItems.map((i) => (
+              <NavbarItem
+                key={i.title}
+                item={i}
+                defaultComponent={props.defaultComponent}
+              />
+            ))}
           </div>
         }
       >
