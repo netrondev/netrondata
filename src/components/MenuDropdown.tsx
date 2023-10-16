@@ -14,6 +14,7 @@ export type MenuItems = {
 export function ExpandableDiv(props: {
   children: ReactNode;
   expanded: boolean;
+  className?: string;
 }) {
   const [height, set_height] = useState<number>();
   const [width, set_width] = useState<number>();
@@ -40,7 +41,7 @@ export function ExpandableDiv(props: {
 
   return (
     <div
-      className={cn("transition-all overflow-clip")}
+      className={cn("transition-all overflow-clip", props.className)}
       style={{ height: props.expanded ? height : 0 }}
     >
       <div
