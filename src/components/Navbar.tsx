@@ -122,10 +122,7 @@ export function Navbar(props: {
         </div>
       </nav>
       <NoSSR>
-        <ExpandableDiv
-          expanded={menuMainOpen}
-          className={"block md:hidden sticky z-50"}
-        >
+        <ExpandableDiv expanded={menuMainOpen} className={"block md:hidden"}>
           <div
             className={cn(
               "md:hidden",
