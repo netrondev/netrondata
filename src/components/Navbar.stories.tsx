@@ -12,7 +12,7 @@ export default {
 
 export const NavbarFancyLogo = () => (
   <>
-    <Page className="p-5">
+    <Page className="">
       <Navbar
         menu={[
           {
@@ -35,7 +35,7 @@ export const NavbarFancyLogo = () => (
         ]}
       />
     </Page>
-    <Page className="mt-5 p-5">
+    <Page className="mt-1">
       <Navbar
         logo={<div>FancyLogo</div>}
         className="flex flex-row gap-2 items-center"
