@@ -9,6 +9,7 @@ export * from "./components/MenuDropdown";
 export * from "./components/Navbar";
 export * from "./components/NoSSR";
 export * from "./components/Page";
+export * from "./components/Panel";
 export * from "./components/Input";
 export * from "./components/Tooltip";
 export * from "./components/Section";
