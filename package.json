@@ -1,10 +1,11 @@
 {
   "name": "netrondata",
-  "version": "0.2.89",
+  "version": "0.2.90",
   "description": "Netron Data components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "pub": "npm run build; npm publish",
     "test": "echo \"Error: no test specified\" && exit 1",
     "ladle": "BROWSER=ls ladle serve",
     "build": "tsup src/index.ts --format esm,cjs --dts --external react"
