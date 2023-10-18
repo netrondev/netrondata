@@ -5,10 +5,11 @@ import { cn } from "../utils/cn";
 import { Button } from "./Button";
 import { NoSSR } from "./NoSSR";
 
-export type MenuItems = {
+export type MenuItem<G> = {
   title: string;
-  subitems?: MenuItems[];
-  is_done?: boolean;
+  meta?: G;
+  subitems?: MenuItem<G>[];
+  // is_done?: boolean;
 };
 
 export function ExpandableDiv(props: {
@@ -57,32 +58,44 @@ export function ExpandableDiv(props: {
   );
 }
 
-function ContentMenu(props: {
-  title: string;
-  exercises?: MenuItems[];
-  is_done?: boolean;
+function ContentMenu<G>(props: {
+  // title: string;
+  // exercises?: MenuItem<G>[];
+  data: MenuItem<G>;
+  // is_done?: boolean;
+  // subitems: boolean;
   expanded: boolean;
   onExpand: (item: { title: string }) => void;
+  defaultComponent?: (item: MenuItem<G>) => ReactNode;
 }) {
   // const [expanded, setExpanded] = useState(false);
 
   return (
     <div className="rounded border text-neutral-700 dark:text-neutral-500 divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800">
-      <Button
-        className="flex w-full items-center rounded"
-        onClick={() => {
-          props.onExpand({ title: props.title });
-        }}
-      >
-        <div className="flex-1 whitespace-nowrap text-left">{props.title}</div>
-        {props.is_done && <AiOutlineCheck />}
-        <BsChevronDown
-          className={cn(
-            "transition",
-            props.expanded ? "rotate-0" : "rotate-180"
-          )}
-        />
-      </Button>
+      <div className="flex whitespace-nowrap items-center">
+        <div className="flex-1">
+          {props.defaultComponent
+            ? props.defaultComponent(props.data)
+            : props.data.title}
+        </div>
+
+        {/* {props.is_done && <AiOutlineCheck />} */}
+
+        <Button
+          className="flex items-center rounded"
+          onClick={() => {
+            props.onExpand({ title: props.data.title });
+          }}
+        >
+          <BsChevronDown
+            className={cn(
+              "transition",
+              props.data.subitems ? "rotate-0" : "rotate-180"
+            )}
+          />
+        </Button>
+      </div>
+
       <NoSSR>
         <ExpandableDiv expanded={props.expanded}>
           <div
@@ -90,20 +103,30 @@ function ContentMenu(props: {
               "flex flex-col divide-y overflow-hidden text-sm transition-all dark:bg-neutral-800 dark:border-neutral-700 divide-neutral-200 dark:divide-neutral-700"
             )}
           >
-            {props.exercises?.map((i) => (
-              <div
-                key={i.title}
-                className="flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700"
-              >
-                <AiOutlineCheck
-                  className={cn(
-                    "mt-1",
-                    props.is_done ? "opacity-100" : "opacity-5"
-                  )}
-                />
-                {i.title}
-              </div>
-            ))}
+            {props.data.subitems?.map((i) => {
+              return (
+                <div
+                  key={i.title}
+                  className="flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700"
+                >
+                  <div className="flex-1">
+                    {props.defaultComponent ? (
+                      <>{props.defaultComponent(i)}</>
+                    ) : (
+                      <span>{i.title}</span>
+                    )}
+                  </div>
+
+                  {/* <AiOutlineCheck
+                    className={cn(
+                      "mt-1"
+                      // props.is_done ? "opacity-100" : "opacity-5"
+                    )}
+                  /> */}
+                  {/* {i.title} */}
+                </div>
+              );
+            })}
           </div>
         </ExpandableDiv>
       </NoSSR>
@@ -111,18 +134,24 @@ function ContentMenu(props: {
   );
 }
 
-export function MenuDropdown(props: { contents: MenuItems[] }) {
+export function MenuDropdown<G>(props: {
+  contents: MenuItem<G>[];
+  defaultComponent?: (item: MenuItem<G>) => ReactNode;
+}) {
   const [expanded, set_expanded] = useState<string>();
 
   return (
     <section className="flex flex-col gap-1">
       {props.contents.map((i) => (
-        <ContentMenu
+        <ContentMenu<G>
           key={i.title}
-          title={i.title}
-          exercises={i.subitems}
-          is_done={i.is_done}
+          // title={i.title}
+          data={i}
+          // exercises={i.subitems}
+          // is_done={i.is_done}
+          // subitems={expanded === i.title}
           expanded={expanded === i.title}
+          defaultComponent={props.defaultComponent}
           onExpand={(item) => {
             set_expanded(item.title);
           }}
