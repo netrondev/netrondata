@@ -90,12 +90,16 @@ export function Table<T>(props: {
 }) {
   const [page_input, page_input_set] = useState<number>(0);
 
-  const [sorting, setSorting] = React.useState<SortingState>([
-    {
-      id: "id",
-      desc: false,
-    },
-  ]);
+  props.tableOptions?.initialState?.sorting;
+
+  const [sorting, setSorting] = React.useState<SortingState>(
+    props.tableOptions?.initialState?.sorting ?? [
+      {
+        id: "id",
+        desc: false,
+      },
+    ]
+  );
 
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -137,7 +141,10 @@ export function Table<T>(props: {
     getFacetedUniqueValues: getFacetedUniqueValues(),
     getFacetedMinMaxValues: getFacetedMinMaxValues(),
     //
-    initialState: { pagination: { pageSize: 10, pageIndex: 0 } },
+    initialState: {
+      pagination: { pageSize: 10, pageIndex: 0 },
+      ...props.tableOptions?.initialState,
+    },
     // debugTable: true,
 
     onSortingChange: setSorting,
