@@ -11,22 +11,36 @@ export const MenuDropdownSamples = () => (
       contents={[
         {
           title: "Advanced Props",
-          meta: { is_done: true },
+          is_done: true,
           subitems: [
-            { title: "Type-Checking React Props With Discriminated Unions" },
-            { title: "Destructuring Discriminated Unions in React Props" },
+            {
+              title: "Type-Checking React Props With Discriminated Unions",
+              is_done: true,
+            },
+            {
+              title: "Destructuring Discriminated Unions in React Props",
+              is_done: true,
+            },
           ],
         },
 
         {
           title: "Using Generics with Components",
-          meta: { is_done: true },
+          is_done: true,
           subitems: [
-            { title: "DRY out Code with Generic Type Helpers" },
-            { title: "Refactoring to a Type Helper" },
+            {
+              title: "DRY out Code with Generic Type Helpers",
+              is_done: true,
+            },
+            {
+              title: "Refactoring to a Type Helper",
+              is_done: true,
+              subitems: [],
+            },
           ],
         },
       ]}
+      defaultComponent={(i) => <div>{i.subitems![0]!.is_done}</div>}
     />
   </Section>
 );

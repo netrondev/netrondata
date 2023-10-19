@@ -7,10 +7,9 @@ import { NoSSR } from "./NoSSR";
 
 export type MenuItem<G> = {
   title: string;
-  meta?: G;
-  subitems?: MenuItem<G>[];
+  subitems?: MenuItem<Partial<G>>[];
   // is_done?: boolean;
-};
+} & Partial<G>;
 
 export function ExpandableDiv(props: {
   children: ReactNode;
