@@ -6,8 +6,11 @@ import { Button } from "./Button";
 import { NoSSR } from "./NoSSR";
 
 export type MenuItem<G> = {
+  id: string;
   title: string;
   subitems?: MenuItem<Partial<G>>[];
+  // expanded?: boolean;
+  // active?: boolean;
   // is_done?: boolean;
 } & Partial<G>;
 
@@ -63,11 +66,14 @@ function ContentMenu<G>(props: {
   data: MenuItem<G>;
   // is_done?: boolean;
   // subitems: boolean;
+  active_id?: string;
   expanded: boolean;
-  onExpand: (item: { title: string }) => void;
+  onExpand: (item: MenuItem<G>) => void;
   defaultComponent?: (item: MenuItem<G>) => ReactNode;
 }) {
   // const [expanded, setExpanded] = useState(false);
+
+  if (!props.data) return <div>no data</div>;
 
   return (
     <div className="rounded border text-neutral-700 dark:text-neutral-500 divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800">
@@ -83,7 +89,7 @@ function ContentMenu<G>(props: {
         <Button
           className="flex items-center rounded"
           onClick={() => {
-            props.onExpand({ title: props.data.title });
+            props.onExpand(props.data);
           }}
         >
           <BsChevronDown
@@ -106,7 +112,10 @@ function ContentMenu<G>(props: {
               return (
                 <div
                   key={i.title}
-                  className="flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700"
+                  className={cn(
+                    "flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700",
+                    props.active_id === i.id && "text-sky-500"
+                  )}
                 >
                   <div className="flex-1">
                     {props.defaultComponent ? (
@@ -136,8 +145,9 @@ function ContentMenu<G>(props: {
 export function MenuDropdown<G>(props: {
   contents: MenuItem<G>[];
   defaultComponent?: (item: MenuItem<G>) => ReactNode;
+  active_id?: string;
 }) {
-  const [expanded, set_expanded] = useState<string>();
+  const [expanded_id, set_expanded_id] = useState<string>();
 
   return (
     <section className="flex flex-col gap-1">
@@ -149,10 +159,16 @@ export function MenuDropdown<G>(props: {
           // exercises={i.subitems}
           // is_done={i.is_done}
           // subitems={expanded === i.title}
-          expanded={expanded === i.title}
+          active_id={props.active_id}
+          expanded={
+            expanded_id === i.id ??
+            i.subitems?.find((z) => z.id === props.active_id)
+              ? true
+              : false
+          }
           defaultComponent={props.defaultComponent}
           onExpand={(item) => {
-            set_expanded(item.title);
+            set_expanded_id(item.id);
           }}
         />
       ))}

@@ -20,6 +20,7 @@ export function Button(
     children?: ReactNode;
     href?: string;
     size?: "sm" | "md" | "lg";
+    variant?: "text" | "contained" | "outlined";
     className?: string;
     active?: boolean;
     tooltip?: string;
@@ -31,9 +32,10 @@ export function Button(
 ) {
   const {
     icon,
-    size,
+    size = "md",
     active: active,
     tooltip,
+    variant,
     className,
     href,
     ...rest
@@ -44,18 +46,34 @@ export function Button(
       <button
         {...rest}
         className={cn(
-          "flex border font-normal tracking-wider text-neutral-600 transition",
-          "items-center whitespace-nowrap",
-          size === "sm" && "gap-1 rounded px-2 py-1 text-sm",
-          size === "md" || (!size && "gap-3 rounded p-1 px-2 font-normal"),
-          size == "lg" && "gap-4 rounded-xl p-3",
-          active
-            ? "border-sky-300 bg-sky-700/10 text-sky-600 outline-none focus:outline-none"
-            : cn(
-                "bg-neutral-200 text-neutral-500 hover:bg-neutral-200",
-                "dark:border-neutral-800 dark:bg-neutral-900/50 hover:dark:bg-neutral-900 hover:dark:text-neutral-300"
-              ),
-          // active === false && "opacity-90",
+          "flex font-normal tracking-wider  transition",
+          "items-center whitespace-nowrap rounded p-1 px-2",
+          "text-sky-500 hover:text-sky-600",
+          "dark:text-sky-300 dark:hover:text-sky-100",
+          size === "sm" && "gap-1 rounded p-1 text-xs",
+          size === "md" || (!size && "gap-3 rounded p-2 px-3 font-normal"),
+          size == "lg" && "gap-4 rounded-lg p-2 px-3 text-lg",
+
+          variant === "text" &&
+            cn(
+              "text-sky-500 bg-sky-500/5 hover:bg-sky-500/10 hover:text-sky-600",
+              "dark:text-sky-500 dark:bg-sky-800/30 hover:dark:text-sky-200/90"
+            ),
+
+          variant === "contained" &&
+            cn(
+              "bg-sky-600 text-sky-200 hover:bg-sky-500",
+              "dark:bg-sky-600 dark:text-sky-200 hover:dark:bg-sky-500"
+            ),
+
+          variant === "outlined" &&
+            cn(
+              "border",
+              "text-sky-500 bg-sky-500/5 hover:bg-sky-500/10 hover:text-sky-600 border-sky-400",
+              "dark:text-sky-500 dark:bg-sky-800/30 hover:dark:text-sky-200/90 dark:border-sky-700",
+              active &&
+                "border-sky-300 dark:border-sky-800 bg-sky-700/10 text-sky-600 outline-none focus:outline-none"
+            ),
 
           className
         )}

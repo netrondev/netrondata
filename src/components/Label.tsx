@@ -16,7 +16,7 @@ export function Label(
 
   return (
     <Section className={"w-full"}>
-      <label {...rest} className="text-xs">
+      <label {...rest} className="text-xs text-black dark:text-white">
         {title}
       </label>
       {children}
