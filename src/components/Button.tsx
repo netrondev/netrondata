@@ -50,7 +50,7 @@ export function Button(
           size === "md" || (!size && "gap-3 rounded p-1 px-2 font-normal"),
           size == "lg" && "gap-4 rounded-xl p-3",
           active
-            ? "border-purple-300 bg-purple-700/10 text-purple-600"
+            ? "border-sky-300 bg-sky-700/10 text-sky-600 outline-none focus:outline-none"
             : cn(
                 "bg-neutral-200 text-neutral-500 hover:bg-neutral-200",
                 "dark:border-neutral-800 dark:bg-neutral-900/50 hover:dark:bg-neutral-900 hover:dark:text-neutral-300"
