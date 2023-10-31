@@ -47,7 +47,7 @@ export const MenuDropdownSamples = () => {
     },
   ]);
   return (
-    <Section className="flex flex-col">
+    <div className="flex flex-col gap-10">
       <MenuDropdown
         contents={contents}
         active_id={active_id}
@@ -62,6 +62,22 @@ export const MenuDropdownSamples = () => {
           </Button>
         )}
       />
-    </Section>
+
+      <MenuDropdown
+        contents={contents}
+        active_id={active_id}
+        expand_all
+        defaultComponent={(i) => (
+          <Button
+            active={i.id === active_id}
+            onClick={(z) => {
+              active_id_set(i.id);
+            }}
+          >
+            {i.title}
+          </Button>
+        )}
+      />
+    </div>
   );
 };

@@ -68,6 +68,9 @@ function ContentMenu<G>(props: {
   // subitems: boolean;
   active_id?: string;
   expanded: boolean;
+  /** expand all sections on load */
+  expand_all?: boolean;
+
   onExpand: (item: MenuItem<G>) => void;
   defaultComponent?: (item: MenuItem<G>) => ReactNode;
 }) {
@@ -76,8 +79,8 @@ function ContentMenu<G>(props: {
   if (!props.data) return <div>no data</div>;
 
   return (
-    <div className="rounded border text-neutral-700 dark:text-neutral-500 divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800">
-      <div className="flex whitespace-nowrap items-center">
+    <div className="text-neutral-700 dark:text-neutral-500 divide-neutral-700 dark:border-neutral-700/70 dark:bg-neutral-800/50">
+      <div className="flex whitespace-nowrap items-center border-b dark:border-neutral-700">
         <div className="flex-1">
           {props.defaultComponent
             ? props.defaultComponent(props.data)
@@ -85,27 +88,28 @@ function ContentMenu<G>(props: {
         </div>
 
         {/* {props.is_done && <AiOutlineCheck />} */}
-
-        <Button
-          className="flex items-center rounded"
-          onClick={() => {
-            props.onExpand(props.data);
-          }}
-        >
-          <BsChevronDown
-            className={cn(
-              "transition",
-              props.data.subitems ? "rotate-0" : "rotate-180"
-            )}
-          />
-        </Button>
+        {!props.expand_all && (
+          <Button
+            className="flex items-center rounded"
+            onClick={() => {
+              props.onExpand(props.data);
+            }}
+          >
+            <BsChevronDown
+              className={cn(
+                "transition",
+                props.data.subitems ? "rotate-0" : "rotate-180"
+              )}
+            />
+          </Button>
+        )}
       </div>
 
       <NoSSR>
         <ExpandableDiv expanded={props.expanded}>
           <div
             className={cn(
-              "flex flex-col divide-y overflow-hidden text-sm transition-all dark:bg-neutral-800 dark:border-neutral-700 divide-neutral-200 dark:divide-neutral-700"
+              "flex flex-col divide-y overflow-hidden text-sm transition-all dark:bg-neutral-800/50 divide-neutral-200 dark:divide-neutral-700/70"
             )}
           >
             {props.data.subitems?.map((i) => {
@@ -113,7 +117,7 @@ function ContentMenu<G>(props: {
                 <div
                   key={i.title}
                   className={cn(
-                    "flex cursor-pointer gap-2 p-1 transition hover:bg-sky-50 dark:hover:bg-neutral-700",
+                    "flex cursor-pointer gap-2 p-0.5 pl-2 text-xs transition hover:bg-sky-50 dark:hover:bg-neutral-700",
                     props.active_id === i.id && "text-sky-500"
                   )}
                 >
@@ -146,11 +150,13 @@ export function MenuDropdown<G>(props: {
   contents: MenuItem<G>[];
   defaultComponent?: (item: MenuItem<G>) => ReactNode;
   active_id?: string;
+  /** expand all sections on load */
+  expand_all?: boolean;
 }) {
   const [expanded_id, set_expanded_id] = useState<string>();
 
   return (
-    <section className="flex flex-col gap-1">
+    <section className="flex flex-col gap-0 border dark:border-neutral-700/70 divide-y dark:divide-neutral-700/70 rounded overflow-hidden">
       {props.contents.map((i) => (
         <ContentMenu<G>
           key={i.title}
@@ -160,7 +166,9 @@ export function MenuDropdown<G>(props: {
           // is_done={i.is_done}
           // subitems={expanded === i.title}
           active_id={props.active_id}
+          expand_all={props.expand_all}
           expanded={
+            props.expand_all ??
             expanded_id === i.id ??
             i.subitems?.find((z) => z.id === props.active_id)
               ? true
