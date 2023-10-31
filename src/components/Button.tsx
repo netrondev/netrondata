@@ -61,14 +61,21 @@ export function Button(
               "text-sky-500 bg-sky-500/5 hover:bg-sky-500/10 hover:text-sky-600",
               "dark:text-sky-500 dark:bg-sky-800/30 hover:dark:text-sky-200/90",
               active &&
-                cn("text-indigo-500 bg-indigo-100", "dark:text-indigo-300")
+                cn(
+                  "text-indigo-500 bg-indigo-100",
+                  "dark:text-indigo-300 dark:bg-indigo-500/30"
+                )
             ),
 
           variant === "contained" &&
             cn(
               "bg-sky-600 text-white hover:bg-sky-500",
               "dark:bg-sky-600 dark:text-white hover:dark:bg-sky-500",
-              active && cn("bg-indigo-500 text-white", "dark:text-indigo-300")
+              active &&
+                cn(
+                  "bg-indigo-500 text-white",
+                  "dark:text-white dark:bg-indigo-500"
+                )
             ),
 
           variant === "outlined" &&
@@ -79,7 +86,7 @@ export function Button(
               active &&
                 cn(
                   "text-indigo-500 border-indigo-500 bg-indigo-100",
-                  "dark:text-indigo-300"
+                  "dark:text-indigo-300 dark:border-indigo-500 dark:bg-indigo-500/30"
                 )
             ),
 
