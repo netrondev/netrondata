@@ -62,8 +62,8 @@ export function Button(
               "dark:text-sky-500 dark:bg-sky-800/30 hover:dark:text-sky-200/90",
               active &&
                 cn(
-                  "text-indigo-500 bg-indigo-100",
-                  "dark:text-indigo-300 dark:bg-indigo-500/30"
+                  "text-indigo-500 bg-indigo-100 hover:bg-indigo-200/70 hover:text-indigo-600",
+                  "dark:text-indigo-300 dark:bg-indigo-500/30 hover:dark:text-indigo-200 dark:hover:bg-indigo-600/30"
                 )
             ),
 
@@ -73,8 +73,8 @@ export function Button(
               "dark:bg-sky-600 dark:text-white hover:dark:bg-sky-500",
               active &&
                 cn(
-                  "bg-indigo-500 text-white",
-                  "dark:text-white dark:bg-indigo-500"
+                  "bg-indigo-500 text-white hover:bg-indigo-600/70 hover:text-white",
+                  "dark:text-white dark:bg-indigo-500 dark:hover:text-white dark:hover:bg-indigo-600"
                 )
             ),
 
@@ -85,8 +85,8 @@ export function Button(
               "dark:text-sky-500 dark:bg-sky-800/30 hover:dark:text-sky-200/90 dark:border-sky-700",
               active &&
                 cn(
-                  "text-indigo-500 border-indigo-500 bg-indigo-100",
-                  "dark:text-indigo-300 dark:border-indigo-500 dark:bg-indigo-500/30"
+                  "text-indigo-500 border-indigo-500 bg-indigo-100 hover:text-indigo-600 hover:border-indigo-600, hover:bg-indigo-200/70",
+                  "dark:text-indigo-300 dark:border-indigo-500 dark:bg-indigo-500/30 hover:dark:text-indigo-200"
                 )
             ),
 
