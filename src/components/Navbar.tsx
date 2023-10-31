@@ -7,17 +7,18 @@ import { HiDotsVertical } from "react-icons/hi";
 import { ExpandableDiv } from "./MenuDropdown";
 import { NoSSR } from "./NoSSR";
 
-export type NavMenuItem = {
+export type NavMenuItem<G = {}> = {
   title: string;
   href?: string;
   component?: ReactNode;
-  subItems?: NavMenuItem[];
+  active?: boolean;
+  subItems?: NavMenuItem<Partial<G>>[];
   onClick?: () => void | Promise<void>;
-};
+} & Partial<G>;
 
-function NavbarItem(props: {
-  item: NavMenuItem;
-  defaultComponent?: (item: NavMenuItem) => ReactNode;
+function NavbarItem<G>(props: {
+  item: NavMenuItem<G>;
+  defaultComponent?: (item: NavMenuItem<G>) => ReactNode;
 }) {
   if (props.item.subItems) {
     return (
@@ -42,7 +43,15 @@ function NavbarItem(props: {
   if (props.item.component) return <>{props.item.component}</>;
 
   if (props.item.onClick)
-    return <Button onClick={props.item.onClick}>{props.item.title}</Button>;
+    return (
+      <Button
+        variant="text"
+        active={props.item.active}
+        onClick={props.item.onClick}
+      >
+        {props.item.title}
+      </Button>
+    );
 
   if (props.defaultComponent) return props.defaultComponent(props.item);
 
@@ -58,12 +67,12 @@ function NavbarItem(props: {
   return <span>{props.item.title}</span>;
 }
 
-export function Navbar(props: {
+export function Navbar<G>(props: {
   logo?: ReactNode | string;
   className?: string;
-  menu: NavMenuItem[];
-  menuSecondary?: NavMenuItem[];
-  defaultComponent?: (item: NavMenuItem) => ReactNode;
+  menu: NavMenuItem<G>[];
+  menuSecondary?: NavMenuItem<G>[];
+  defaultComponent?: (item: NavMenuItem<G>) => ReactNode;
 }) {
   const [menuMainOpen, setMenuMainOpen] = useState(false);
 

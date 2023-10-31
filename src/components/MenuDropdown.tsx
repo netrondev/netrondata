@@ -91,6 +91,7 @@ function ContentMenu<G>(props: {
         {!props.expand_all && (
           <Button
             className="flex items-center rounded"
+            variant="text"
             onClick={() => {
               props.onExpand(props.data);
             }}

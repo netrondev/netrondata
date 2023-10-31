@@ -53,48 +53,23 @@ export const ButtonPreview = () => (
       </Label>
     </div>
 
-    <div className="flex flex-row dark gap-2 mt-2">
-      <Label title="default">
+    <div className="flex">
+      <Label title="Normal State">
         <Button>Default</Button>
+        <Button variant="text">Text</Button>
+        <Button variant="contained">Contained</Button>
+        <Button variant="outlined">Outlined</Button>
       </Label>
 
-      <Label title="small:">
-        <Button size="sm">TEST BUTTON</Button>
-        <Button size="sm" variant="text">
+      <Label title="Active state">
+        <Button active>Default</Button>
+        <Button variant="text" active>
           Text
         </Button>
-        <Button size="sm" variant="contained">
+        <Button variant="contained" active>
           Contained
         </Button>
-        <Button size="sm" variant="outlined">
-          Outlined
-        </Button>
-      </Label>
-
-      <Label title="medium">
-        <Button size="md">TEST BUTTON</Button>
-
-        <Button size="md" variant="text">
-          Text
-        </Button>
-        <Button size="md" variant="contained">
-          Contained
-        </Button>
-        <Button size="md" variant="outlined">
-          Outlined
-        </Button>
-      </Label>
-
-      <Label title="large">
-        <Button size="lg">TEST BUTTON</Button>
-
-        <Button size="lg" variant="text">
-          Text
-        </Button>
-        <Button size="lg" variant="contained">
-          Contained
-        </Button>
-        <Button size="lg" variant="outlined">
+        <Button variant="outlined" active>
           Outlined
         </Button>
       </Label>

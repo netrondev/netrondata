@@ -54,6 +54,7 @@ export const MenuDropdownSamples = () => {
         defaultComponent={(i) => (
           <Button
             active={i.id === active_id}
+            variant="text"
             onClick={(z) => {
               active_id_set(i.id);
             }}
@@ -70,6 +71,7 @@ export const MenuDropdownSamples = () => {
         defaultComponent={(i) => (
           <Button
             active={i.id === active_id}
+            variant="text"
             onClick={(z) => {
               active_id_set(i.id);
             }}
