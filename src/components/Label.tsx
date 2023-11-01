@@ -5,6 +5,7 @@ import {
   type LabelHTMLAttributes,
 } from "react";
 import { Section } from "./Section";
+import { cn } from "..";
 
 export function Label(
   props: DetailedHTMLProps<
@@ -16,7 +17,10 @@ export function Label(
 
   return (
     <Section className={"w-full"}>
-      <label {...rest} className="text-xs text-black dark:text-white">
+      <label
+        {...rest}
+        className={cn("text-xs text-neutral-400 dark:text-neutral-400")}
+      >
         {title}
       </label>
       {children}

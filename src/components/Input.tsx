@@ -1,5 +1,5 @@
 import React, { type InputHTMLAttributes, type DetailedHTMLProps } from "react";
-import * as cn from "../utils/cn";
+import { cn } from "~/utils/cn";
 
 export function Input(
   props: DetailedHTMLProps<
@@ -10,8 +10,10 @@ export function Input(
   return (
     <input
       {...props}
-      className={cn.cn(
-        "rounded border-none p-2 focus:outline-none dark:bg-neutral-900",
+      className={cn(
+        "rounded border-2 border-transparent transition p-2 focus:outline-none",
+        "bg-neutral-200 hover:bg-white focus:border-sky-300",
+        "dark:bg-neutral-800 hover:dark:bg-neutral-900 focus:dark:border-sky-700",
         props.className
       )}
     />
