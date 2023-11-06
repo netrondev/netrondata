@@ -5,6 +5,7 @@ export * from "./components/Container";
 export * from "./components/Footer";
 export * from "./components/Heading";
 export * from "./components/Loading";
+export * from "./components/LinearProgress";
 export * from "./components/MenuDropdown";
 export * from "./components/Navbar";
 export * from "./components/NoSSR";
