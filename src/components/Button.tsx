@@ -20,7 +20,7 @@ export function Button(
     children?: ReactNode;
     href?: string;
     size?: "sm" | "md" | "lg";
-    variant?: "text" | "contained" | "outlined";
+    variant?: "text" | "contained" | "outlined" | "subtle";
     className?: string;
     active?: boolean;
     tooltip?: string;
@@ -87,6 +87,15 @@ export function Button(
                 cn(
                   "text-indigo-500 border-indigo-500 bg-indigo-100 hover:text-indigo-600 hover:border-indigo-600, hover:bg-indigo-200/70",
                   "dark:text-indigo-300 dark:border-indigo-500 dark:bg-indigo-500/30 hover:dark:text-indigo-200"
+                )
+            ),
+
+          variant === "subtle" &&
+            cn(
+              "hover:bg-primary-500/10 bg-neutral-100 text-neutral-500 hover:text-primary-600",
+              active &&
+                cn(
+                  "bg-purple-100 text-purple-600 hover:bg-purple-200/70 hover:text-purple-600"
                 )
             ),
 
