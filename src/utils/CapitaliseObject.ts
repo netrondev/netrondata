@@ -29,3 +29,36 @@ export type CapitaliseObjectKeys<T> = {
 //   } as const;
 
 // const asdf = CapitaliseObject(testObject);
+
+/// lowercase first letter of object keys
+export function LowercaseObject<T extends object>(
+  obj: T,
+): LowercaseObjectKeys<T> {
+  const newObj = {} as LowercaseObjectKeys<T>;
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      const newkey = `${key.charAt(0)!.toLowerCase()}${key.slice(
+        1,
+      )}` as keyof LowercaseObjectKeys<T>;
+
+      newObj[newkey] = obj[
+        key
+      ] as LowercaseObjectKeys<T>[keyof LowercaseObjectKeys<T>];
+    }
+  }
+  return newObj;
+}
+
+// generic type transform object keys to lowercase first letter
+
+export type LowercaseObjectKeys<T> = {
+  [P in keyof T as Uncapitalize<string & P>]: T[P];
+};
+
+const testObjectUpper = {
+  Some: 1,
+  Data: 2,
+  TestDasd: "asdasd",
+};
+
+const asdfUpper = LowercaseObject(testObjectUpper);
