@@ -27,6 +27,7 @@ export * from "./utils/cn";
 export * from "./utils/isAlphaNumeric";
 export * from "./utils/delay";
 export * from "./utils/encodeQueryData";
+export * from "./utils/CapitaliseObject"
 export * from "surrealdb.js";
 // export * from "./schema/generate";
 export { type Database, type Query } from "./useData/typeparser";
